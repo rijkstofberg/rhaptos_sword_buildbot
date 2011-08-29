@@ -28,7 +28,7 @@ except ImportError:
 
 buildmaster_host = 'localhost'
 port = 9989
-slavename = 'rhaptos-slave'
+slavename = 'rhaptos-swordservice-slave'
 passwd = 'rh4pt0s'
 keepalive = 600
 usepty = 0
