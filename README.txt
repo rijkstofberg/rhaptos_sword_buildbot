@@ -12,8 +12,18 @@ Checkout git@github.com:rijkstorfberg/rhaptos_sword_buildbot.git rhaptos_sword_b
 
 cd rhaptos_sword_buildbot
 virtualenv -p /usr/bin/python2.4 .
-bin/easy_install --find-links=http://download.zope.org/distribution PILwoTK
-bin/easy_install --find-links=http://initd.org/psycopg/tarballs psycopg2
+
+# now for the buildbot dependencies
+virtualenv -p /usr/bin/python2.4 .
+./bin/easy_install twisted
+./bin/easy_install buildbot
+./bin/easy_install buildbot-slave
+
+# now we install the instance in the test slave
+cd ./slave/runtests/build
+virtualenv -p /usr/bin/python2.4 .
+./bin/easy_install --find-links=http://download.zope.org/distribution PILwoTK
+./bin/easy_install --find-links=http://initd.org/psycopg/tarballs psycopg2
 
 # Install mxdatetime. Can't use easy_install for this because we need the
 # header files later
@@ -55,12 +65,3 @@ pushd libxml2-2.7.6/python
 ../../../bin/python setup.py install
 popd
 cd ..
-
-# now we do a buildout of the app
-./bin/python bootstrap.py -c devel_pgsql.cfg
-./bin/buildout -c devel_pgsql.cfg
-
-./bin/easy_install twisted
-./bin/easy_install buildbot
-./bin/easy_install buildbot-slave
-
