@@ -4,7 +4,7 @@ import os
 from twisted.application import service
 from buildbot.master import BuildMaster
 
-basedir = r'/home/rijk/instances/buildbot/master'
+basedir = r'.'
 rotateLength = 10000000
 maxRotatedFiles = 10
 
