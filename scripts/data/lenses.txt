@@ -1,7 +1,0 @@
-timea/endorsements
-ccotp/endorsements
-cnxorg/featured
-cnxorg/documentation
-cnxhcc/affilation
-tecsuzuki/TECMusicTheory
-swong/design-patterns
