@@ -5,6 +5,7 @@ https://software.cnx.rice.edu/svn/devsets/rhaptos-sword-service/README.ubuntu.tx
 Above and beyond the normal libraries and packages necessary to run a Plone 3 development install tThe following system dependencies have to be installed before you start the buildbot installation:
 * openjdk-6-jre python-virtualenv
 * python2.4 python2.4-dev
+* sqlite libsqlite3-dev
 
 OK, now we are ready to start:
 Checkout the code:
