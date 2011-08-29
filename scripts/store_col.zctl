@@ -1,0 +1,17 @@
+from Testing.ZopeTestCase.utils import makerequest
+app = makerequest(app)
+app.REQUEST.set('PARENTS',[app])
+app.REQUEST.traverse('/VirtualHostBase/http/localhost/plone/VirtualHostRoot/')
+
+for col in app.plone.content.objectValues('Version Folder'):
+    for rev in col.objectValues('Collection'):
+        mod = app.plone.portal_moduledb.sqlGetModule(id=rev.objectId,version=rev.version)
+        if len(mod) == 0:
+            print "%s/%s:" % (rev.objectId,rev.version) ,
+            try:
+                app.plone.portal_moduledb.insertModuleVersion(rev)
+                print "succeeded"
+            except:
+                print "failed"
+    
+import transaction; transaction.commit()
